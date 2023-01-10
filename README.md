@@ -1,12 +1,15 @@
->**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
-
 ### Date created
 Tuesday, January 10 2023
 
 ### Udacity Bikeshare Project
 
 ### Description
-Project to read csv and display statistics and visualisations.
+This project uses a python script 'bikeshare.py' to:
+    -ask for user input to select and filter bikeshare data
+    -read the csv data and manipulate and modify it in a dataframe
+    -print summary statistics about the data
+    -ask for user input to create visualisations of the data
+    -print visualisations about the data
 
 ### Files used
 bikeshare.py
