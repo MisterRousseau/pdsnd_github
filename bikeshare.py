@@ -92,21 +92,6 @@ print("\nReading csv into dataframe...")
 global df
 df = pd.read_csv('{}.csv'.format(city))
 
-# REDUNDANT
-print("Creating new column 'ROUTE'...")
-x = df[['Start Station','End Station']].to_numpy()
-x.sort(axis=1)
-df['ROUTE'] = ["<==>".join(i) for i in x.tolist()]
-
-# REDUNDANT
-print("Creating new column 'DIRECTION'...")
-dir_cats =  {
-    'LOOP': (df['Start Station'] == df['End Station']),
-    'TO<==>FROM': (df['Start Station'] > df['End Station']),
-    'FROM<==>TO': (df['Start Station'] < df['End Station'])
-    }
-df['DIRECTION'] = np.select(dir_cats.values(), dir_cats.keys())
-
 # Create Start Month Column. Filter if necessary
 print("Creating new column 'Start Month'...")
 df['Start Month'] = pd.to_datetime(df['Start Time']).dt.month_name()
