@@ -6,6 +6,12 @@ import datetime as dtm
 import calendar as cal
 
 def list_select(qstn, lst):
+    # Asks the user to select an option from a given list of valid value
+    # Args:
+    #     (qstn) - A text string representing the question the user will see
+    #     (lst) - A list of strings representing the options available to the user
+    # Returns:
+    #     A string selected from those provided in (lst)
     valid_optns = {**{str(enum): val for enum, val in enumerate(lst,1)},
                    **{val.lower(): val for val in lst}}
 
@@ -22,6 +28,9 @@ def list_select(qstn, lst):
             return valid_optns.get(ask)
 
 def time_string(sec):
+    # Returns a detailed, human readable time string based on a numeric value representing number of seconds
+    # Args:
+    #   (sec) - a numeric value representing a number of seconds
     factrs = {'years': 365*24*60*60, 'days': 24*60*60,'hrs': 60*60, 'mins': 60}
     x = round(sec,0)
     strt = False
@@ -36,6 +45,10 @@ def time_string(sec):
     return str
 
 def series_mode_summary(series, txt):
+    # Prints text summarising the mode of the values from a provided series accompanied with descriptive text
+    # Args:
+    #   (series) - A pandas series
+    #   (txt) - Descriptive text of the mode being printed
     conv = lambda x: int(round(x,0)) if type(x) == float else x
     modes = [str(conv(i)) for i in series.mode(dropna=True)]
     mode_str = ' (AND) '.join(modes)
